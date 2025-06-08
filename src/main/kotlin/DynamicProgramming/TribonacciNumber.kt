@@ -30,4 +30,45 @@ class TribonacciNumber {
             return memo[n]
         }
     }
+
+    // Iterative Solution 1:
+    class IterativeSolution {
+        fun tribonacci(n: Int): Int {
+            if(n < 2) return n
+            if(n == 2) return 1
+
+            val dp = IntArray(n + 1)
+            dp[0] = 0
+            dp[1] = 1
+            dp[2] = 1
+
+            for(i in 3..n) {
+                dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
+            }
+
+            return dp[n]
+        }
+    }
+
+    // Iterative Solution 2: (No need for an entire array, only last three elements are needed):
+    class IterativeSolution2 {
+        fun tribonacci(n: Int): Int {
+            if(n < 2) return n
+            if(n == 2) return 1
+
+            var a = 0
+            var b = 1
+            var c = 1
+            var temp = 0
+
+            for(i in 3..n) {
+                temp = a + b + c
+                a = b
+                b = c
+                c = temp
+            }
+
+            return c
+        }
+    }
 }
