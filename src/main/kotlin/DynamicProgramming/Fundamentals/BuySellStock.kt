@@ -15,4 +15,22 @@ class BuySellStock {
         }
     }
 
+    // Single Pass Solution, O(N)
+    class SinglePassSolution {
+        fun maxProfit(prices: IntArray): Int {
+            var max = 0
+            var profit: Int
+            var buy = prices[0]
+            for(i in 1 until prices.size) {
+                profit = prices[i] - buy
+                if(profit < 0) {
+                    buy = prices[i]
+                } else {
+                    max = maxOf(max, profit)
+                }
+            }
+            return max
+        }
+    }
+
 }
