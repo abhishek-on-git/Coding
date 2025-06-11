@@ -1,4 +1,4 @@
-package org.example.DynamicProgramming
+package org.example.DynamicProgramming.Fundamentals
 
 class TribonacciNumber {
     //Brute Force Solution:
