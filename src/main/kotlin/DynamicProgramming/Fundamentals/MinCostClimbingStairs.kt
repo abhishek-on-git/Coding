@@ -45,4 +45,49 @@ class MinCostClimbingStairs {
             return memo[i]
         }
     }
+
+    // Iterative Solution 1 O(N) time, O(N) space
+    /**
+     * Think of a dp array element as the minimum cost to reach that step.
+     * We will need to create an array of size n+1, as dp[n] would be the
+     * minimum cost to reach that step (even though dp[n] is not exactly a step).
+     * Think of it as a virtual step
+     */
+    class IterativeSolution1 {
+        fun minCostClimbingStairs(cost: IntArray): Int {
+            val n = cost.size
+            val dp = IntArray(n+1)
+            dp[0] = 0
+            dp[1] = 0
+
+            for(i in 2 until n+1) {
+                dp[i] = minOf(
+                    dp[i-1] + cost[i-1],
+                    dp[i-2] + cost[i-2]
+                )
+            }
+
+            return dp[n]
+        }
+    }
+
+    // Iterative Solution 2 O(N) time, O(1) space
+    /**
+     * We really need the last two step min costs, not the entire array.
+     */
+    class IterativeSolution2 {
+        fun minCostClimbingStairs(cost: IntArray): Int {
+            val n = cost.size
+            var first = 0
+            var second = 0
+
+            for(i in 2 until n+1) {
+                val min = minOf(first + cost[i-2],second + cost[i-1])
+                first = second
+                second = min
+            }
+
+            return second
+        }
+    }
 }
