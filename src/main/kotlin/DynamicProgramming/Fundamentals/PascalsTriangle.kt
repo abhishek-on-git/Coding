@@ -51,4 +51,32 @@ class PascalsTriangle {
             return prev
         }
     }
+
+    // Pascal's Triangle 2 Follow up (O(rowIndex) space)
+    /**
+     * Create a list initialized with all 1s and create
+     * each row in every iteration. So for rowIndex 4, the
+     * iterations would look like this:
+     * [1,1,1,1,1]
+     * [1,2,1,1,1]
+     * [1,3,3,1,1]
+     * [1,4,6,4,1]
+     */
+    class Solution {
+        fun getRow(rowIndex: Int): List<Int> {
+            val row = MutableList(rowIndex + 1) { 1 }
+            if(rowIndex < 2) return row
+
+            for(i in 1 until rowIndex) {
+                var t = 1
+                for(j in 1..i) {
+                    val sum = row[j] + t
+                    t = row[j]
+                    row[j] = sum
+                }
+            }
+
+            return row
+        }
+    }
 }
