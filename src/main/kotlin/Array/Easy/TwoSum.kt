@@ -1,4 +1,4 @@
-package org.example.Array
+package org.example.Array.Easy
 
 /**
  * Leetcode 1 - https://leetcode.com/problems/two-sum/description

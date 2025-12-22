@@ -1,4 +1,4 @@
-package org.example.Array
+package org.example.Array.Easy
 
 /**
  * Leetcode 2544 - https://leetcode.com/problems/alternating-digit-sum/

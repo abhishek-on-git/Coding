@@ -1,4 +1,4 @@
-package org.example.Array
+package org.example.Array.Easy
 
 //Leetcode 303 - https://leetcode.com/problems/range-sum-query-immutable/description/
 class RangeSumQuery {
